@@ -6,7 +6,9 @@ RANDOM=$(printf "%d" "0x$(head -c4 /dev/urandom | od -t x1 -An | tr -d ' ')")
 if [ -z "$WORKERS" ]; then
   WORKERS=2
 fi
-
+# check environment variables
+PORT=${process.env.PORT || 3927}
+echo "-p <port>: port to listen on. ${process.env.PORT || 3927}
 echo "####"
 echo "#### Telegram Proxy"
 echo "####"
@@ -99,7 +101,7 @@ echo "[*] Final configuration:"
 I=1
 echo "$SECRET" | tr ',' '\n' | while read S; do
   echo "[*]   Secret $I: $S"
-  echo "[*]   tg:// link for secret $I auto configuration: tg://proxy?server=${EXTERNAL_IP}&port=443&secret=${S}"
+  echo "[*]   tg:// link for secret $I auto configuration: tg://proxy?server=${EXTERNAL_IP}&PORT=${process.env.PORT || 3927}&secret=${S}"
   echo "[*]   t.me link for secret $I: https://t.me/proxy?server=${EXTERNAL_IP}&port=443&secret=${S}"
   I=$(($I+1))
 done
