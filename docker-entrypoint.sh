@@ -7,8 +7,6 @@ if [ -z "$WORKERS" ]; then
   WORKERS=2
 fi
 # check environment variables
-PORT=${process.env.PORT || 3927}
-echo "-p <port>: port to listen on. ${process.env.PORT || 3927}
 echo "####"
 echo "#### Telegram Proxy"
 echo "####"
