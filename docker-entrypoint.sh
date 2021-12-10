@@ -100,7 +100,7 @@ I=1
   echo "$SECRET" | tr ',' '\n' | while read S; do
   echo "[*]   Secret $I: $S"
   echo "[*]   tg:// link for secret $I auto configuration: tg://proxy?server=${EXTERNAL_IP}&PORT=3927&secret=${S}"
-  echo "[*]   t.me link for secret $I: https://t.me/proxy?server=${EXTERNAL_IP}&port=${process.env.PORT || 3927}&secret=${S}"
+  echo "[*]   t.me link for secret $I: https://t.me/proxy?server=${EXTERNAL_IP}&port=$3927&secret=${S}"
   I=$(($I+1))
 done
 
