@@ -31,11 +31,11 @@ COPY --from=0 /mtproxy/sources/objs/bin/mtproto-proxy .
 COPY docker-entrypoint.sh /
 
 VOLUME /data
-# EXPOSE 2398 8089
+#EXPOSE 2398 443
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD [ \
-
+  
   "--http-ports", "$PORT", \
   "--slaves", "2", \
   "--max-special-connections", "60000", \
